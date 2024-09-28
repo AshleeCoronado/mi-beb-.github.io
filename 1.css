@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Degradado llamativo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+}
+
+/* Contenedor de la tarjeta */
+.container {
+    position: relative;
+    text-align: center;
+    width: 90%; 
+    max-width: 350px;
+    height: auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Corazón */
+.corazon {
+    width: 90px;
+    height: 80px;
+    background-color: #ff0000; /* Naranja fuerte */
+    position: relative;
+    transform: rotate(-45deg);
+    animation: latir 1s infinite;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.corazon::before,
+.corazon::after {
+    content: "";
+    width: 90px;
+    height: 80px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.corazon::before {
+    top: -45px;
+    left: 0;
+}
+
+.corazon::after {
+    left: 45px;
+    top: 0;
+}
+
+/* Animación del corazón */
+@keyframes latir {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg); /* Latido más fuerte */
+    }
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+/* Mensaje */
+.mensaje {
+    display: none;
+    font-size: 18px;
+    color: #f1f3f2; /* Un tono púrpura vibrante */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #be324a; /* Amarillo claro */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container.active .mensaje {
+    display: block;
+    animation: aparecer 0.5s ease-in-out;
+}
+
+/* Animación de aparición */
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mensaje p {
+    margin: 10px 0;
+}
+
+.firma {
+    font-size: 16px;
+    color: #8b0000; /* Rojo oscuro */
+    margin-top: 20px;
+}
